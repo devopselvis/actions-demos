@@ -9,7 +9,7 @@ on:
 jobs:
 
   testing-issues-label:
-    
+    if: ${{ github.event.label.name == 'bug' }}
     runs-on: ubuntu-latest
 
     steps:
