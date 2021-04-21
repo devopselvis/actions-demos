@@ -7,7 +7,7 @@ jobs:
   linuxjob1: 
     name: My First Linux Job
     
-    runs-on: ubuntu-latest
+    runs-on: mgsb1-private
     
     outputs:
       output1: ${{ steps.step1.outputs.value1 }} 
