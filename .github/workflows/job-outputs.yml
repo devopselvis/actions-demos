@@ -16,17 +16,17 @@ jobs:
     runs-on: ${{ matrix.OS }}
     
     outputs:
-      output1: ${{ steps.step1.outputs.value1 }}
+      output1: ${{ steps.step1.outputs.value1 }} 
       output2: ${{ steps.step2.outputs.value1 }}
 
     steps:
     - id: step1
       name: My First Step
-      run: echo "::set-output name=value1::please"
+      run: echo "::set-output name=value1::please ${{ matrix.OS }}"
         
     - id: step2
       name: My Second Step
-      run: echo "::set-output name=value1::work"
+      run: echo "::set-output name=value1::work ${{ matrix.OS }}"
         
   job2:
     name: My Second Job
