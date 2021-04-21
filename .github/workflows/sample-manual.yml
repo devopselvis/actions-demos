@@ -8,7 +8,7 @@ jobs:
 
   job1:
     # The type of runner that the job will run on
-    runs-on: mgsb1-public
+    runs-on: public
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
