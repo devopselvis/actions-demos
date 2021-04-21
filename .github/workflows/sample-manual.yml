@@ -1,0 +1,23 @@
+name: Sample Manual Workflow
+
+# Controls when the action will run. 
+on:
+  workflow_dispatch:
+
+jobs:
+
+  job1:
+    # The type of runner that the job will run on
+    runs-on: mgsb1-public
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
