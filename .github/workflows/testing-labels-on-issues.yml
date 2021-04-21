@@ -17,6 +17,6 @@ jobs:
       - name: Output GitHub Context
         run: |
           echo Event = ${{ github.event }}
-          echo -------------------------------------------------
-          echo  ${{ toJson(github) }}
+          echo ===========================================
+          echo  "${{ toJson(github) }}"
 
