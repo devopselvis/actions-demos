@@ -54,5 +54,30 @@ jobs:
     steps:
     - run: echo ${{needs.winjob1.outputs.output1}} ${{needs.winjob1.outputs.output2}}
     
+  macjob1: 
+    name: My First Mac Job
+  
+    runs-on: macos-latest
+  
+    outputs:
+      output1: ${{ steps.step1.outputs.value1 }} 
+      output2: ${{ steps.step2.outputs.value1 }}
+
+    steps:
+    - id: step1
+      name: My First Mac Step
+      run: echo "::set-output name=value1::please"
+        
+    - id: step2
+      name: My Second Mac Step
+      run: echo "::set-output name=value1::work-mac"
+        
+  macjob2:
+    name: My Second mac Job
+    needs: macjob1
+    runs-on: macos-latest
+    steps:
+    - run: echo ${{needs.macjob1.outputs.output1}} ${{needs.macjob1.outputs.output2}}
+    
 
 
