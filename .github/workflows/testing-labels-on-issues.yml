@@ -15,8 +15,9 @@ jobs:
     steps:
 
       - name: Output GitHub Context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
-          echo Event = ${{ github.event }}
           echo ===========================================
-          echo  "${{ toJson(github) }}"
+          echo  $GITHUB_CONTEXT
 
