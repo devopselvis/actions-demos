@@ -31,7 +31,7 @@ jobs:
   job2:
     name: My Second Job
     needs: job1
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.OS }}
     steps:
     - run: echo ${{needs.job1.outputs.output1}} ${{needs.job1.outputs.output2}} 
 
