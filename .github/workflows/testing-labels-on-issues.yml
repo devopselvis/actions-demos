@@ -1,0 +1,22 @@
+name: Testing Labels On Issues
+
+on:
+  issues:
+    types:
+      - labeled
+
+
+jobs:
+
+  testing-issues-label:
+    
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Output GitHub Context
+        run: |
+          echo Event = ${{ github.event }}
+          echo -------------------------------------------------
+          echo  ${{ toJson(github) }}
+
