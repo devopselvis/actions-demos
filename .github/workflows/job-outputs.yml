@@ -4,28 +4,80 @@ on:
   workflow_dispatch:
 
 jobs:
-  job1: 
-    name: My First Job
+  linuxjob1: 
+    name: My First Linux Job
     
     runs-on: ubuntu-latest
     
     outputs:
-      output1: ${{ steps.step1.outputs.value1 }}
+      output1: ${{ steps.step1.outputs.value1 }} 
       output2: ${{ steps.step2.outputs.value1 }}
 
     steps:
     - id: step1
-      name: My First Step
+      name: My First Linux Step
       run: echo "::set-output name=value1::please"
         
     - id: step2
-      name: My Second Step
-      run: echo "::set-output name=value1::work"
+      name: My Second Linux Step
+      run: echo "::set-output name=value1::work-linux"
         
-  job2:
-    name: My Second Job
-    needs: job1
+  linuxjob2:
+    name: My Second Linux Job
+    needs: linuxjob1
     runs-on: ubuntu-latest
     steps:
-    - run: echo ${{needs.job1.outputs.output1}} ${{needs.job1.outputs.output2}} 
+    - run: echo ${{needs.linuxjob1.outputs.output1}} ${{needs.linuxjob1.outputs.output2}} 
+    
+  winjob1: 
+    name: My First Windows Job
+  
+    runs-on: windows-latest
+  
+    outputs:
+      output1: ${{ steps.step1.outputs.value1 }} 
+      output2: ${{ steps.step2.outputs.value1 }}
+
+    steps:
+    - id: step1
+      name: My First Windows Step
+      run: echo "::set-output name=value1::please"
+        
+    - id: step2
+      name: My Second Windows Step
+      run: echo "::set-output name=value1::work-win"
+        
+  winjob2:
+    name: My Second Windows Job
+    needs: winjob1
+    runs-on: windows-latest
+    steps:
+    - run: echo ${{needs.winjob1.outputs.output1}} ${{needs.winjob1.outputs.output2}}
+    
+  macjob1: 
+    name: My First Mac Job
+  
+    runs-on: macos-latest
+  
+    outputs:
+      output1: ${{ steps.step1.outputs.value1 }} 
+      output2: ${{ steps.step2.outputs.value1 }}
+
+    steps:
+    - id: step1
+      name: My First Mac Step
+      run: echo "::set-output name=value1::please"
+        
+    - id: step2
+      name: My Second Mac Step
+      run: echo "::set-output name=value1::work-mac"
+        
+  macjob2:
+    name: My Second mac Job
+    needs: macjob1
+    runs-on: macos-latest
+    steps:
+    - run: echo ${{needs.macjob1.outputs.output1}} ${{needs.macjob1.outputs.output2}}
+    
+
 
