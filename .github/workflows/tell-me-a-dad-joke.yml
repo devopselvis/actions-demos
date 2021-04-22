@@ -13,7 +13,12 @@ jobs:
     steps:
      
       - name: Get Dad Joke
+        id: get-dad-joke
         run: |
           JOKE=$(curl -H "Accept: text/plain" https://icanhazdadjoke.com/)
           echo "================================================================="
           echo "$JOKE"
+          echo "::set-output name=dadjoke::$JOKE"
+          
+      - name: Output Dad Joke
+        run: ${{ steps.get-dad-joke.outputs.dadjoke}}
