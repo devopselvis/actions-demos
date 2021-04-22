@@ -2,7 +2,7 @@ name: SemVer Tagging Example
 
 on:
   workflow_dispatch:
-  push:
+  pull_request:
     branches:
       - main
 
