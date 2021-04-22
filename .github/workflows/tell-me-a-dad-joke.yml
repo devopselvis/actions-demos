@@ -21,4 +21,4 @@ jobs:
           echo "::set-output name=dadjoke::$JOKE"
           
       - name: Output Dad Joke
-        run: ${{ steps.get-dad-joke.outputs.dadjoke}}
+        run: echo "${{ steps.get-dad-joke.outputs.dadjoke}}"
