@@ -1,7 +1,10 @@
 name: Tell Me A Dad Joke
 
 on:
-  workflow_dispatch:
+  # workflow_dispatch:
+  issues:
+    types:
+      - labeled
 
 jobs:
   
@@ -21,4 +24,11 @@ jobs:
           echo "::set-output name=dadjoke::$JOKE"
           
       - name: Output Dad Joke
-        run: echo "${{ steps.get-dad-joke.outputs.dadjoke}}"
+        run: echo "${{ steps.get-dad-joke.outputs.dadjoke }}"
+
+      - name: Create comment
+        uses: peter-evans/create-or-update-comment@v1
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            "${{ steps.get-dad-joke.outputs.dadjoke }}"
