@@ -11,7 +11,7 @@ jobs:
   GetDadJoke:
     
     runs-on: ubuntu-latest
-
+    if: ${{ github.event.label.name == 'dadjoke' }}
     
     steps:
      
@@ -31,4 +31,4 @@ jobs:
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
-            "${{ steps.get-dad-joke.outputs.dadjoke }}"
+            DAD JOKE - "${{ steps.get-dad-joke.outputs.dadjoke }}"
