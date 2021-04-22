@@ -1,0 +1,17 @@
+name: Tell Me A Dad Joke
+
+on:
+  workflow_dispatch:
+
+jobs:
+  
+  GetDadJoke:
+    
+    runs-on: ubuntu-latest
+
+    
+    steps:
+     
+      - name: Get Dad Joke
+        run: |
+          curl -H "User-Agent: mickeygousset (https://github.com/mickeygoussetorg/actions-demos)" https://icanhazdadjoke.com/
