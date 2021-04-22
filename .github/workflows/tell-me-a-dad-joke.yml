@@ -14,4 +14,4 @@ jobs:
      
       - name: Get Dad Joke
         run: |
-          curl -H "User-Agent: mickeygousset (https://github.com/mickeygoussetorg/actions-demos)" https://icanhazdadjoke.com/
+          curl -H "Accept: text/plain" https://icanhazdadjoke.com/
