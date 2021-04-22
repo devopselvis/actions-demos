@@ -14,4 +14,6 @@ jobs:
      
       - name: Get Dad Joke
         run: |
-          curl -H "Accept: text/plain" https://icanhazdadjoke.com/
+          JOKE=$(curl -H "Accept: text/plain" https://icanhazdadjoke.com/)
+          echo "================================================================="
+          echo "$JOKE"
