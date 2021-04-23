@@ -13,7 +13,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - id: myjoke
-        uses: mickeygoussetorg/get-a-dad-joke@v1.0.0
+        uses: mickeygoussetorg/get-a-dad-joke@v1
         
       - name: Output Dad Joke
         run: echo ${{ steps.myjoke.outputs.dad-joke }}
