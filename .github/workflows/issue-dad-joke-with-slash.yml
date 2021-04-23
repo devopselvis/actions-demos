@@ -19,6 +19,7 @@ jobs:
         uses: mickeygoussetorg/get-a-dad-joke@v1
         
       - name: Create comment
+        if: ${{ startsWith(github.event.comment.body, '/joke') }}
         uses: peter-evans/create-or-update-comment@v1
         with:
           issue-number: ${{ github.event.issue.number }}
