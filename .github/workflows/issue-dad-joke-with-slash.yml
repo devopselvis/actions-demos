@@ -14,9 +14,15 @@ jobs:
 
     steps:
 
-      - name: Output GitHub Context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
+      - name: Was A Dad Joke Requested
+        id: dad-joke-requested
+        run: | 
+          checkvalue="${${{ github.event.comment.body }}:0:5}"
+          echo "::set-output name=comment::$checkvalue"
+
+      - name: Testing
+        if: ${{ steps.run_tests.outputs.comment == '/joke' }}
         run: |
           echo ===========================================
-          echo  $GITHUB_CONTEXT
+          echo "a joke was asked for"
+
