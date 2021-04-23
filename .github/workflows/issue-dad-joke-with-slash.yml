@@ -14,22 +14,13 @@ jobs:
 
     steps:
 
-#      - name: Was A Dad Joke Requested
-#        id: dad-joke-requested
-#        run: | 
-#          checkvalue="${${{ github.event.comment.body }}:0:5}"
-#          echo "::set-output name=comment::$checkvalue"
-
-      - name: Output GitHub Context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: |
-          echo ===========================================
-          echo  $GITHUB_CONTEXT
-
-      - name: Testing
+      - id: getdadjoke
         if: ${{ startsWith(github.event.comment.body, '/joke') }}
-        run: |
-          echo ===========================================
-          echo "a joke was asked for"
-
+        uses: mickeygoussetorg/get-a-dad-joke@v1
+        
+      - name: Create comment
+        uses: peter-evans/create-or-update-comment@v1
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            DAD JOKE - "${{ steps.getdadjoke.outputs.dad-joke }}"
