@@ -20,8 +20,15 @@ jobs:
 #          checkvalue="${${{ github.event.comment.body }}:0:5}"
 #          echo "::set-output name=comment::$checkvalue"
 
+      - name: Output GitHub Context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: |
+          echo ===========================================
+          echo  $GITHUB_CONTEXT
+
       - name: Testing
-        if: ${{ github.event.comment.body == '/joke' }}
+        if: ${{ startsWith(github.event.comment.body, '/joke') }}
         run: |
           echo ===========================================
           echo "a joke was asked for"
