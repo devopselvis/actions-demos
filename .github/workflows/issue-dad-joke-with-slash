@@ -1,0 +1,22 @@
+name: Add Dad Joke To Issue Using Slash
+
+on:
+  issue_comment:
+    types: 
+      - created
+
+
+jobs:
+
+  Add-Dad-Joke-To-Issue-Comment:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Output GitHub Context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: |
+          echo ===========================================
+          echo  $GITHUB_CONTEXT
