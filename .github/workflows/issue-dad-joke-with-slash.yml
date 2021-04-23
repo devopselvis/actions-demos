@@ -24,4 +24,4 @@ jobs:
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
-            DAD JOKE - "${{ steps.getdadjoke.outputs.dad-joke }}"
+            ${{ github.event.comment.user.login }}, here is your DAD JOKE - "${{ steps.getdadjoke.outputs.dad-joke }}"
