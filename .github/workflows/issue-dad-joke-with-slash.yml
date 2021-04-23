@@ -14,14 +14,14 @@ jobs:
 
     steps:
 
-      - name: Was A Dad Joke Requested
-        id: dad-joke-requested
-        run: | 
-          checkvalue="${${{ github.event.comment.body }}:0:5}"
-          echo "::set-output name=comment::$checkvalue"
+#      - name: Was A Dad Joke Requested
+#        id: dad-joke-requested
+#        run: | 
+#          checkvalue="${${{ github.event.comment.body }}:0:5}"
+#          echo "::set-output name=comment::$checkvalue"
 
       - name: Testing
-        if: ${{ steps.run_tests.outputs.comment == '/joke' }}
+        if: ${{ github.event.comment.body == '/joke' }}
         run: |
           echo ===========================================
           echo "a joke was asked for"
