@@ -14,5 +14,5 @@ jobs:
 
       - name: Change The Bulb Color To Green
         run: |
-          curl -X PUT "https://api.lifx.com/v1/lights/${{ secrets.LIFX_BULB_ID }}/state" -H "Authorization: Bearer ${{ LIFX_ID }}" -d "color=green"
+          curl -X PUT "https://api.lifx.com/v1/lights/${{ secrets.LIFX_BULB_ID }}/state" -H "Authorization: Bearer ${{ secrets.LIFX_ID }}" -d "color=green"
 
