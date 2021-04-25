@@ -1,0 +1,18 @@
+name: Change Color Of Office LIFX Lightbulb
+
+# Controls when the action will run. 
+on:
+  workflow_dispatch:
+  
+jobs:
+  changethebulbcolor:
+    name: Change The Bulb Color
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Change The Bulb Color To Green
+        run: |
+          curl -X PUT "https://api.lifx.com/v1/lights/${{ secrets.LIFX_BULB_ID }}/state" -H "Authorization: Bearer ${{ LIFX_ID }}" -d "color=green"
+
