@@ -3,6 +3,8 @@ name: Change Color Of Office LIFX Lightbulb
 # Controls when the action will run. 
 on:
   workflow_dispatch:
+  watch:
+    types: [started]
   
 jobs:
   changethebulbcolor:
