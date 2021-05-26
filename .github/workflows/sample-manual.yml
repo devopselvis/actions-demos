@@ -16,4 +16,4 @@ jobs:
         uses: mickeygoussetorg/get-a-dad-joke@v1
         
       - name: Output Dad Joke
-        run: echo ${{ steps.myjoke.outputs.dad-joke }}
+        run: echo "${{ steps.myjoke.outputs.dad-joke }}"
