@@ -1,4 +1,4 @@
-name: SonarCube Workflow
+name: SonarCloud Workflow
 on:
   workflow_dispatch:
 jobs:
