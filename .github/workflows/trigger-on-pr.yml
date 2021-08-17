@@ -3,6 +3,7 @@ name: Trigger On PR
 # Controls when the action will run. 
 on:
   pull_request:
+    
 
 jobs:
 
