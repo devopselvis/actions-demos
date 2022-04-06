@@ -1,0 +1,17 @@
+name: Trigger On PR
+
+# Controls when the action will run. 
+on:
+  pull_request:
+    
+
+jobs:
+
+  job1:
+    # The type of runner that the job will run on
+    runs-on: self-hosted
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: do something
+        run: echo "do something"
