@@ -48,3 +48,10 @@ jobs:
           VALIDATE_ALL_CODEBASE: true
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OUTPUT_FOLDER: "QualityReports"
+          OUTPUT_DETAILS: detailed
+          
+      - uses: actions/upload-artifact@v2
+        with:
+          name: SuperLinter-QualityReport
+          path: '${{ github.workspace }}/QualityReports/'
